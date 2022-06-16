@@ -79,6 +79,7 @@ static long Fibonacci(long n)
 	return Fibonacci(n - 1) + Fibonacci(n - 2);
 }
 
+/*
 for (int i = 1; i < 50; i++)
 {
 	Stopwatch watch = Stopwatch.StartNew();
@@ -87,3 +88,26 @@ for (int i = 1; i < 50; i++)
 	Console.WriteLine(i + "th Fibonacci number: " + result
 		+ "     After " + (watch.ElapsedMilliseconds / 1000) + " seconds.");
 }
+*/
+
+
+static void PrintEven(int min, int max)
+{
+	// max < min
+	// min == max
+	// max <= min
+	// max == min + 1
+	if (max < min)
+	{
+		return;
+	}
+	PrintEven(min, max - 1);
+	if (max % 2 == 0)
+		Console.WriteLine(max);
+}
+
+Console.WriteLine("Print even 17,17");
+PrintEven(17, 17);
+
+Console.WriteLine("Print even 24,27");
+PrintEven(24, 27);
