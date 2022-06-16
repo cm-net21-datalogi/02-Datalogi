@@ -3,6 +3,8 @@
 //Console.WriteLine("4! == " + f4);
 // Facit: 4 * 3 * 2 * 1 == 4 * 6 == 24
 
+using System.Diagnostics;
+
 static int Factorial(int n)
 {
 	if (n <= 1)
@@ -61,6 +63,27 @@ static int ArraySum(int[] array, int startIndex = 0)
 	}
 }
 
-int[] testArray = new int[] { 2, 3, 5 };
-int sum = ArraySum(testArray);
-Console.WriteLine("Sum of test array is: " + sum);
+//int[] testArray = new int[] { 2, 3, 5 };
+//int sum = ArraySum(testArray);
+//Console.WriteLine("Sum of test array is: " + sum);
+
+
+
+static long Fibonacci(long n)
+{
+	if (n <= 1)
+		return 0;
+	else if (n == 2)
+		return 1;
+
+	return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+
+for (int i = 1; i < 50; i++)
+{
+	Stopwatch watch = Stopwatch.StartNew();
+	var result = Fibonacci(i);
+	watch.Stop();
+	Console.WriteLine(i + "th Fibonacci number: " + result
+		+ "     After " + (watch.ElapsedMilliseconds / 1000) + " seconds.");
+}
