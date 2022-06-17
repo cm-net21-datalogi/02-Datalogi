@@ -106,8 +106,62 @@ static void PrintEven(int min, int max)
 		Console.WriteLine(max);
 }
 
+/*
 Console.WriteLine("Print even 17,17");
 PrintEven(17, 17);
 
 Console.WriteLine("Print even 24,27");
 PrintEven(24, 27);
+*/
+
+
+static string Reverse(string s)
+{
+	if(s == "")
+	{
+		return "";
+	}
+	else if (s.Length == 1)
+	{
+		return s;
+	}
+	else
+	{
+		char firstLetter = s[0];
+		return Reverse(s.Substring(1)) + firstLetter;
+	}
+}
+
+// Console.WriteLine("Reverse: " + Reverse("reverse"));
+
+static bool IsPalindrom(string candidate)
+{
+	// Enkla lösningen
+	// return s == Reverse(s
+	// 
+
+	if (candidate.Length <= 1)
+	{
+		return true;
+	}
+	else if(candidate.Length == 2)
+	{
+		return candidate[0] == candidate[1];
+	}
+	char first = candidate[0];
+	char last = candidate[candidate.Length - 1];
+	string middle = candidate.Substring(1, candidate.Length - 2);
+	if (first != last)
+		return false;
+
+	return IsPalindrom(middle);
+}
+
+Console.WriteLine(IsPalindrom(""));
+Console.WriteLine(IsPalindrom("x"));
+Console.WriteLine(IsPalindrom("yy"));
+Console.WriteLine(IsPalindrom("apa"));
+Console.WriteLine(IsPalindrom("abba"));
+
+Console.WriteLine(IsPalindrom("nope"));
+Console.WriteLine(IsPalindrom("april"));
